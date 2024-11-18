@@ -53,7 +53,7 @@ class ImageClassifier:
     def setup_model(self):
         """Set up pre-trained ResNet model"""
         # Load pre-trained ResNet18 model
-        self.model = models.resnet18(weights='IMAGENET1K_V1')
+        self.model = models.resnet18(pretrained=True)
         
         # Modify the first conv layer to handle CIFAR-10's 32x32 images
         self.model.conv1 = nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False)
